@@ -8,9 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('barang', BarangElektronikController::class);
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [BarangElektronikController::class, 'index']);
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
